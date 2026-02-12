@@ -5785,7 +5785,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3003/api/v1/car/catalog/download",
+					"raw": "http://localhost:3003/api/v1/car/catalog/download/update",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -5796,7 +5796,8 @@
 						"v1",
 						"car",
 						"catalog",
-						"download"
+						"download",
+						"update"
 					]
 				}
 			},
