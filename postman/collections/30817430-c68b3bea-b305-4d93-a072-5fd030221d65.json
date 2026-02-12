@@ -1,0 +1,5806 @@
+{
+	"info": {
+		"_postman_id": "30817430-c68b3bea-b305-4d93-a072-5fd030221d65",
+		"name": "Carbee API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login Admin",
+					"id": "30817430-da14b8cc-79eb-4c25-bf9f-019bd587871c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user.admin@gmail.com\",\n  \"password\": \"12345Aa@\",\n  \"role\": \"superAdmin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"id": "30817430-2fe53517-4c72-420c-a60e-47e0179eb1b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWZkMjk4NGZjMWQ5NDVjODYyMzBmNzkiLCJpYXQiOjE3NDUyOTU5MTAsImV4cCI6MTc2MDg0NzkxMCwidHlwZSI6ImFjY2VzcyJ9.onG8djRZeZNoc-Fk6B6bMFtuFZO_jOK15fo7XH8WwT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"arshia.dealership@gmail.com\",\r\n  \"role\": \"dealerShipAdminMaintainer\",\r\n  \"password\": \"Arshi@24\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/reset-password",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Verification Email",
+					"id": "30817430-8e6dddd4-860e-4ef3-abd9-ee8f29236bab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"naseerarshia393@gmail.com\",\r\n  \"role\": \"customer\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/send-customer-verification-email",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"send-customer-verification-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"id": "30817430-1019fc14-5e6d-4cf3-9fa8-73c2c59f41d2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"hanza@techtronix.biz\",\r\n  \"role\": \"dealer\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/forgot-password",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verifiy Code",
+					"id": "30817430-9962769c-a07e-48ee-af01-09123a4bf987",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"hanza@techtronix.biz\",\n  \"role\": \"dealer\",\n  \"code\": \"9388\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/verify-code",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"verify-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Email",
+					"id": "30817430-a8b791da-b3c7-4699-905e-4db4cadab458",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzEwODVhODAwYWQ2YTUzY2RmZDBkOTgiLCJpYXQiOjE3MzkxNzAyMDEsImV4cCI6MTc1NDcyMjIwMSwidHlwZSI6ImFjY2VzcyJ9.Sm20GkVwa-KITygxmLxp2UonFXbU6DIZpVFsOcSO2Do",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzBmOGFhMjFjYTBmMjUxNThmZTc0MzUiLCJpYXQiOjE3Mzg1NjI0MTcsImV4cCI6MTc1NDExNDQxNywidHlwZSI6ImFjY2VzcyJ9.pd655psLVBoBDsQxGMk40h1qFa77oRtzt9SY-nh7yHA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"previousEmail\": \"arshia21.dealership@gmail.com\",\n  \"newEmail\": \"arshia21.dealership@gmail.com\",\n  \"role\": \"dealerShipAdminMaintainer\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/reset-email",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"reset-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify User",
+					"id": "30817430-cc281c6e-bd6b-4670-8491-b99f8988dbb0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmZiYThiOTE0ZDQ0NWYyODE0MzMyODciLCJpYXQiOjE3MzM4MzExMTYsImV4cCI6MTczOTAxNTExNiwidHlwZSI6ImFjY2VzcyJ9.3mMGtM-KHpXq8XTOW2ejGj8lB0X6ECiqs-fVcrxcGiQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"hanza.fiaz@carbee.au\",\n    \"phone\": {\n    \"number\": \"452213536\",\n    \"countryCode\": \"+61\"\n  },\n  \"role\": \"customer\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/verify-user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"verify-user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-c1fcef10-17f0-4454-837d-3fc681d561c8"
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Create Customer",
+					"id": "30817430-5ddb0920-422e-41c9-a738-fcbdf7840d53",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzBmOGFhMjFjYTBmMjUxNThmZTc0MzUiLCJpYXQiOjE3MzgwNjM5NjksImV4cCI6MTc1MzYxNTk2OSwidHlwZSI6ImFjY2VzcyJ9.jOoZNCExC_iCnGxhzV5tfTowE3kXEWyIjrmb9bg8ld4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MDk1MzExOTEsImV4cCI6MTcwOTcxMTE5MSwidHlwZSI6ImFjY2VzcyJ9.EVE4LcIf8I-IMdCkDcVjFKYTPellgHypm9P4c945oLg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Rehan\",\n  \"lastName\": \"Butt\",\n  \"email\": \"peter@1jega-jones.com\",\n//   \"image\": \"\",\n//   \"phone\": {\n//     \"number\": \"456789035\",\n//     \"countryCode\": \"+91\"\n//   },\n  \"location\":{\n  \"latitude\": 37.7749,\n  \"longitude\": -122.4194,\n  \"address\": \"123 Main Street\",\n  \"city\": \"San Francisco\",\n  \"state\": \"California\",\n  \"street\": \"Main Street\",\n  \"postcode\": \"94103\",\n  \"suburb\": \"Downtown\"\n}\n}\n"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customers",
+					"id": "30817430-3b9f1113-e1f6-46a3-86a9-3057cadb944b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3Mjg1MzA5MTAsImV4cCI6MTcyODcxMDkxMCwidHlwZSI6ImFjY2VzcyJ9.rHVlpAHi0HEqwKIlEblYujmjtDYHaSjVIzQ3s50tgx0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MTAxNDM4ODQsImV4cCI6MTcxMDMyMzg4NCwidHlwZSI6ImFjY2VzcyJ9.SCabBuEVVMtk4_uX69tzMeCcp_q7vhpdTh8QogkvbTI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"ACTIVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/65fd0b9afc1d9461bb22fdb0",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"65fd0b9afc1d9461bb22fdb0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer by Id",
+					"id": "30817430-2e8dd560-91ba-4125-886d-a15b0e53e727",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjQ5MDkzNDcsImV4cCI6MTc0MDQ2MTM0NywidHlwZSI6ImFjY2VzcyJ9.Qqar1p-RZ16Vsqaw84JizHHB2CUwwq3bRCs5lEwnMTY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/65f01eccc184985fd7f827f4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"65f01eccc184985fd7f827f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Onboarding Questions",
+					"id": "30817430-87e630c6-9929-44f5-b657-e310585f0cdb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjQ5MTYzNDEsImV4cCI6MTc0MDQ2ODM0MSwidHlwZSI6ImFjY2VzcyJ9.cSwo9L4oysxt62dzXFeop7QjNIR7SmJXAZmd8rPjiS4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"onboardingQuestions\": [\r\n    {\r\n      \"qTag\": \"q1\",\r\n      \"question\": \"What is your favorite color?\",\r\n      \"values\": [\"Red\", \"Blue\", \"Green\"]\r\n    },\r\n    {\r\n      \"qTag\": \"q2\",\r\n      \"question\": \"What is your preferred mode of transport?\",\r\n      \"values\": [\"Car\", \"Bike\", \"Public Transport\"]\r\n    }\r\n  ],\r\n \"location\": {\r\n    \"latitude\": null,\r\n    \"longitude\": null,\r\n    \"address\": \"\",\r\n    \"city\": \"\",\r\n    \"state\": \"\",\r\n    \"street\": \"\",\r\n    \"postcode\": \"\",\r\n    \"suburb\": \"\"\r\n  }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/65f008364b33735fee85ac0c/onboarding-questions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"65f008364b33735fee85ac0c",
+								"onboarding-questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Onboarding Question",
+					"id": "30817430-116e028f-027d-44df-afbd-1ec9922e43ec",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMWVjY2MxODQ5ODVmZDdmODI3ZjQiLCJpYXQiOjE3MjA1MTE5ODQsImV4cCI6MTcyMDY5MTk4NCwidHlwZSI6ImFjY2VzcyJ9.A_mQTVm1iwdnE1axb9xNMS7dIrd7di1OItMyWVK2j7w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/65f01eccc184985fd7f827f4/onboarding-questions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"65f01eccc184985fd7f827f4",
+								"onboarding-questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Prospect",
+					"id": "30817430-93f036c2-cd35-4754-ad9a-6d295d1d13ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjU0NzFkMWExMjZhMTQ2MzU5MDBlNDAiLCJpYXQiOjE3MTkyOTcxMTMsImV4cCI6MTcxOTQ3NzExMywidHlwZSI6ImFjY2VzcyJ9.CmK-_c49kxlaHsWZeu-6aSGONybBeu-KXFpGZ0K8z2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"make\": \"Ford\",\r\n  \"model\": \"Mustang\"\r\n//   \"bodyType\": \"Sedan\",\r\n//   \"tags\": [\"new\", \"hybrid\"]\r\n//   \"location\": {\r\n//     \"street\": \"123 Main St\",\r\n//     \"city\": \"Springfield\",\r\n//     \"state\": \"IL\",\r\n//     \"zipCode\": \"62701\",\r\n//     \"country\": \"USA\"\r\n//   }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/prospect",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"prospect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"id": "30817430-f4e49926-d74f-4687-a0ae-208db277c306",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3Mjg2NDU2MzYsImV4cCI6MTcyODgyNTYzNiwidHlwZSI6ImFjY2VzcyJ9.URIR0NzTMSZ42zo2wldcfrprTjNaBMDZ_dODtf3iQ0A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users/profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top-Searches",
+					"id": "30817430-bcbad179-5720-401b-8a3a-d6303b2be290",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWZkMGI5YWZjMWQ5NDI4MGYyMmZkYWUiLCJpYXQiOjE3Mjg2MzE4ODYsImV4cCI6MTc0NDE4Mzg4NiwidHlwZSI6ImFjY2VzcyJ9.ijHvR7PbS6hy816dK2h4rChefIHf6-fm1iNcx-BqitE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/top-searches",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"top-searches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer Interations",
+					"id": "30817430-bec9c8f4-a1ff-486f-ad13-50d24f556585",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWU5MTA1ODFlZjcyM2U5OTFkNjNjZjciLCJpYXQiOjE3NTM0NDMyNTMsImV4cCI6MTc2ODk5NTI1MywidHlwZSI6ImFjY2VzcyJ9.liC0GUSa1Pp3EJphgYjiYysQXJelT5JAMOifjrdIL8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2N2FkYWZlN2EzOGE4MzcwMTlhODY2YmUiLCJpYXQiOjE3NTkyMTU5MzcsImV4cCI6MTc3NDc2NzkzNywidHlwZSI6ImFjY2VzcyJ9.WQqkjSWH_N08Zzy5mP8LcIoJdfz4t67mAn1_y8u1g2E"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"interactions\": {\n    \"66ea92f486f68bb2f59e953a\": [1.3443],\n    \"68c2934d5423ce19b9b17dc2\": [2.3423]\n  },\n  \"watchTime\": {\n    \"66ea92f486f68bb2f59e953a\": [2.34324],\n    \"68c2934d5423ce19b9b17dc2\": [2.34]\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/customers/65e910581ef7232997d63cf9/interactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"65e910581ef7232997d63cf9",
+								"interactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Specification",
+					"id": "30817430-2fd58135-f748-4f7d-8a2b-399d8fa782bf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/66080db5fed192411836d48c/search-specifications/reset",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"66080db5fed192411836d48c",
+								"search-specifications",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-4076d160-fc62-49db-8992-64a9ade9d0e2"
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create Super Admin",
+					"id": "30817430-3a46fa5c-00be-46dc-b51d-297f416b0528",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Admin\",\r\n  \"lastName\": \"Noman Ali\",\r\n  \"email\": \"noman.ali@carbee.au\",\r\n  \"phone\": {\r\n    \"number\": \"3350468765\",\r\n    \"countryCode\": \"+92\"\r\n  },\r\n  \"password\": \"12345Aa@\",\r\n  \"address\": \"Islamabad, Pakistan\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/super-admin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"super-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SuperAdmin Dashboard",
+					"id": "30817430-ab54a381-1b27-4cb4-b07f-daaac9253f66",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3MjgyOTY2MTUsImV4cCI6MTcyODQ3NjYxNSwidHlwZSI6ImFjY2VzcyJ9.7M3EL0DbyV2dvbPofsLfa0sDaeA0xoUHL7uWc_1kBO4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/super-admin/dashboard",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"super-admin",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-2b73604b-6a32-4839-bcbe-6264e4077397"
+		},
+		{
+			"name": "Dealership",
+			"item": [
+				{
+					"name": "Get Dealership By Id",
+					"id": "30817430-7851c6a4-afc8-4113-86ad-09f73d79731e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjU2YmIxODk4M2UyOTY5YTQxYzJiZWIiLCJpYXQiOjE3MjgyNzU2NzQsImV4cCI6MTczMDg2NzY3NCwidHlwZSI6ImFjY2VzcyJ9.gl0EPZHMaiRRF-GhJq4h_Ux679VfnT-DoKuKoAu-Ss8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MDk3MDAxNjIsImV4cCI6MTcwOTg4MDE2MiwidHlwZSI6ImFjY2VzcyJ9.EW4kfS-CLQHGb2B0mQmDp8V4bgdgwGhOaHgMC-6htks"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"googleTitle\": \"Kedron GWM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship/6614fbe983a51f2116725e0b",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship",
+								"6614fbe983a51f2116725e0b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership",
+					"id": "30817430-9f50f74a-6791-409f-9110-21cf3f692bc9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3Mzg5MjIxMDYsImV4cCI6MTc0NDEwNjEwNiwidHlwZSI6ImFjY2VzcyJ9.voulgzGAND8wAxt2krkwjZfETDidJER2QxTysyiB8xg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"North Shore VW New1 Demo\",\r\n  \"manager\": \"North Shore VW New Demo\",\r\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit 123.\",\r\n  \"password\": \"Dcmnotorn64@\",\r\n  \"email\": \"northshor1evmnewdemo@gmail.com\",\r\n  \"googleTitle\": \"123 Main Street 123\",\r\n  \"phone\":{\r\n    \"number\": \"7499912456\",\r\n    \"countryCode\": \"+61\"\r\n  },\r\n//   \"image\": \"https://example.com/image.jpg\",\r\n//   \"websiteUrl\": \"https://example.com\",\r\n//   \"location\": {\r\n//     \"latitude\": -37.8253,\r\n//     \"longitude\": 144.9522,\r\n//     \"address\": \"228-238 Normanby Rd/\",\r\n//     \"city\": \"\",\r\n//     \"state\": \"VIC\",\r\n//     // \"street\": \"228-238 Normanby Rd\",\r\n//     // \"postcode\": \"3006\",\r\n//     \"suburb\": \"Southbank\"\r\n//   }\r\n  \"tradingHours\": {\r\n    \"monday\": {\r\n      \"open\": \"09:00\",\r\n      \"close\": \"05:00\"\r\n    }\r\n    // \"tuesday\": {\r\n    //   \"open\": \"09:00\",\r\n    //   \"close\": \"05:00\"\r\n    // },\r\n    // \"wednesday\": {\r\n    //   \"open\": \"09:00\",\r\n    //   \"close\": \"05:00\"\r\n    // },\r\n    // \"thursday\": {\r\n    //   \"open\": \"09:00\",\r\n    //   \"close\": \"05:00\"\r\n    // },\r\n    // \"friday\": {\r\n    //   \"open\": \"09:00 AM\",\r\n    //   \"close\": \"05:00 PM\"\r\n    // },\r\n    // \"saturday\": {\r\n    //   \"open\": \"09:00 AM\",\r\n    //   \"close\": \"01:00 PM\"\r\n    // },\r\n    // \"sunday\": {\r\n    //   \"open\": \"Closed\",\r\n    //   \"close\": \"Closed\"\r\n    // }\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership",
+					"id": "30817430-aa46eb6e-e1e0-42d2-8360-23b80bf06dc2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjE0ZmJlOTgzYTUxZjY0NDc3MjVlMDciLCJpYXQiOjE3MjY0ODgyOTQsImV4cCI6MTcyNjY2ODI5NCwidHlwZSI6ImFjY2VzcyJ9.8JWzUwbd1XTATuckZ4_P3XZswjlPpQeMOYgdTGpn9TM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MjE2Mzk4OTgsImV4cCI6MTcyMTgxOTg5OCwidHlwZSI6ImFjY2VzcyJ9.gt6hrrENFrpDDzkl2n4JJz-fqCM27x_QuHlNahn2tKU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Westside Auto\"\n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship/6614fbe983a51f2116725e0b",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship",
+								"6614fbe983a51f2116725e0b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dealership Dashboard",
+					"id": "30817430-15056c13-ed74-4988-81ad-8155287a48d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjE0Y2Y2MTgzYTUxZjFmYjI3MjRkYTQiLCJpYXQiOjE3MjcxNTg3NzMsImV4cCI6MTcyNzMzODc3MywidHlwZSI6ImFjY2VzcyJ9.QDO94SJPXM_2rTaoI-wTDVO__nQXliN0dvuDp3_aCes",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship/dashboard/for",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship",
+								"dashboard",
+								"for"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unassigned Seller",
+					"id": "30817430-49c72186-6feb-4134-950c-dcb2eefc8aa3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzBmYTI4NTFjYTBmMjc3M2NmZTc0ODYiLCJpYXQiOjE3MjkxNDM1MjcsImV4cCI6MTc0NDY5NTUyNywidHlwZSI6ImFjY2VzcyJ9.zagS0dyazEwCQBqA6IEDJvaCnqQrUlZj7sqojcYmSq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjU2YmIxODk4M2UyOTY5YTQxYzJiZWIiLCJpYXQiOjE3MjgyNzU2NzQsImV4cCI6MTczMDg2NzY3NCwidHlwZSI6ImFjY2VzcyJ9.gl0EPZHMaiRRF-GhJq4h_Ux679VfnT-DoKuKoAu-Ss8"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship/unassigned/seller?page=1&limit=13",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship",
+								"unassigned",
+								"seller"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-0860eafb-7e27-48ca-b91a-208b2cf69e40"
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Get Tag by Id",
+					"id": "30817430-0af50563-2daf-4c9b-997b-6c2f6a4df93f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjQ5MTYzNDEsImV4cCI6MTc0MDQ2ODM0MSwidHlwZSI6ImFjY2VzcyJ9.cSwo9L4oysxt62dzXFeop7QjNIR7SmJXAZmd8rPjiS4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "fuel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/super-admin/carTag/664abfe047520e54dc6bf851",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"super-admin",
+								"carTag",
+								"664abfe047520e54dc6bf851"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Tags List",
+					"id": "30817430-3ed4425d-766e-44ee-bc9b-6f2bef0c560e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMWVjY2MxODQ5ODVmZDdmODI3ZjQiLCJpYXQiOjE3Mjg2NTExODksImV4cCI6MTc0NDIwMzE4OSwidHlwZSI6ImFjY2VzcyJ9.GwUiPMEs_ohZ24cpSQkQzUUxCNutbhzKGoKe81AZ7Xg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Four - wheel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/super-admin/car/allTag",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"super-admin",
+								"car",
+								"allTag"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-f7918603-b2e2-49d5-ab18-8f996fdea8f6"
+		},
+		{
+			"name": "Compaign",
+			"item": [
+				{
+					"name": "Spots",
+					"item": [
+						{
+							"name": "Create Compaign Spots",
+							"id": "30817430-439f0cac-7765-4248-b625-9a84d2a07acd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"spots\": [\n    \"fp1\",\n    \"fp6\",\n    \"banner\",\n    \"listing\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/campaign/:compaignId/spots",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"campaign",
+										":compaignId",
+										"spots"
+									],
+									"variable": [
+										{
+											"id": "0d1f63e6-925c-437f-96db-877ffc2d0882",
+											"key": "compaignId",
+											"value": "69899f8d6b1da33db7b51626"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Compaign Spots",
+							"id": "30817430-e318c0f3-4d7f-4d8e-a0aa-74feb2d6259a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"spots\": [\n    \"fp1\",\n    \"fp6\",\n    \"banner\",\n    \"listing\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/campaign/:compaignId/spots",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"campaign",
+										":compaignId",
+										"spots"
+									],
+									"variable": [
+										{
+											"id": "6ca47f1f-eee8-4782-a9b2-7d4ccbeadb1e",
+											"key": "compaignId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Spot Availability",
+							"id": "30817430-06785535-4353-44d7-845d-80fcf757993f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/campaign/spot-availability",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"campaign",
+										"spot-availability"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Banner",
+							"id": "30817430-2a47188c-fb83-48b7-9d9c-1b13e16a2c03",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/campaign/banner",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"campaign",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-c8776e66-3fbc-4ae6-8c1e-b12a7e64daec"
+				},
+				{
+					"name": "Spot Assets",
+					"item": [
+						{
+							"name": "Create Compaign Spots Assets",
+							"id": "30817430-68614782-9616-45f4-86cf-358d6e255e67",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"spotType\": \"fp1\",\n  \"assets\": [\n    {\n      \"mediaId\": \"507f1f77bcf86cd799439013\",\n      \"mediaLabel\": \"New Car Launch Video\",\n      \"linkLabel\": \"Shop Now\",\n      \"linkUrl\": \"https://example.com/shop\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/campaign/:compaignId/assets",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"campaign",
+										":compaignId",
+										"assets"
+									],
+									"variable": [
+										{
+											"id": "bfeb111e-8324-42a0-ad83-ecddcef20a08",
+											"key": "compaignId",
+											"value": "69899f8d6b1da33db7b51626"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Compaign Spots Assets",
+							"id": "30817430-260a4b86-7c2c-430b-9fea-17d84fdf6e0f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"spotType\": \"fp1\",\n  \"assets\": [\n    {\n      \"mediaId\": \"507f1f77bcf86cd799439013\",\n      \"mediaLabel\": \"New Car Launch Video\",\n      \"linkLabel\": \"Shop Now\",\n      \"linkUrl\": \"https://example.com/shop\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/campaign/:compaignId/assets",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"campaign",
+										":compaignId",
+										"assets"
+									],
+									"variable": [
+										{
+											"id": "c54038fb-6012-4551-8845-a55f665ad04d",
+											"key": "compaignId",
+											"value": "69899f8d6b1da33db7b51626"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-f9abcec4-5e96-4a93-bfad-115e3d603ede"
+				},
+				{
+					"name": "Get Compaign list",
+					"id": "30817430-917c059d-c605-4b66-8827-0f519c83104e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/campaign",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"campaign"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Compaign",
+					"id": "30817430-5461cddf-f441-4d61-bb2e-215c54e2eed9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Summer Sale 2026\",\n  \"startTime\": \"2027-06-01T00:00:00.000Z\",\n  \"endTime\": \"2027-08-31T23:59:59.000Z\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/campaign",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"campaign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Compaign",
+					"id": "30817430-4707bda3-83f1-486e-9670-60f389ec8d5b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/campaign",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"campaign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Compaign",
+					"id": "30817430-2826f74b-4374-48c7-9aac-4fbfe4e92d93",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/campaign/:compaignId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"campaign",
+								":compaignId"
+							],
+							"variable": [
+								{
+									"id": "487bd3fa-cee6-4232-a52a-9e204207c712",
+									"key": "compaignId",
+									"value": "69899f8d6b1da33db7b51626"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Compaign by ID",
+					"id": "30817430-b264cf56-b22d-4743-9774-7ab7a8ac46ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/campaign/:compaignId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"campaign",
+								":compaignId"
+							],
+							"variable": [
+								{
+									"id": "6645d519-8ee9-49d2-98d4-ce87ba8d9cf5",
+									"key": "compaignId",
+									"value": "69899f8d6b1da33db7b51626"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Launch Compaign",
+					"id": "30817430-87b03c17-20f0-4e8b-aecb-7c05e846adff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/campaign/:compaignId/launch",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"campaign",
+								":compaignId",
+								"launch"
+							],
+							"variable": [
+								{
+									"id": "c041de08-2c1e-4fc8-b90d-ca5aab13cd33",
+									"key": "compaignId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-fca39325-3ab2-44be-8a23-dceb231794bc"
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "Update Media",
+					"id": "30817430-faeb460c-0908-4e71-9f92-2450a3c2593a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"filename\": \"Autohaus-COTW.mp4\",\n  \"filesize\": 1005,\n  \"filetype\": \"video/mp4\",\n  \"prefix\": \"ads\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/media/upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"media",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Media By Id",
+					"id": "30817430-a1a31bff-86c9-446d-b27e-78ae14e77c1d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"filename\": \"Autohaus-COTW.mp4\",\n  \"filesize\": 1005,\n  \"filetype\": \"video/mp4\",\n  \"prefix\": \"ads\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/media/upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"media",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Object in S3",
+					"id": "30817430-345f0615-0875-4447-ae5d-ddc2c4d77c39",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "video/mp4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "@/home/kashif/Videos/video_1.mp4",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://carbee-private-media-development.s3.amazonaws.com/ads/14627b78-da66-421e-994c-89d498fcea14-Autohaus-COTW.mp4?AWSAccessKeyId=AKIA3QQJHM6ZVJKQAPW5&Content-Type=video/mp4&Expires=1770712360&Signature=VWZmPJLbr8kxTJxKWF%2BvoFPduLU%3D",
+							"protocol": "https",
+							"host": [
+								"carbee-private-media-development",
+								"s3",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"ads",
+								"14627b78-da66-421e-994c-89d498fcea14-Autohaus-COTW.mp4"
+							],
+							"query": [
+								{
+									"key": "AWSAccessKeyId",
+									"value": "AKIA3QQJHM6ZVJKQAPW5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "video/mp4"
+								},
+								{
+									"key": "Expires",
+									"value": "1770712360"
+								},
+								{
+									"key": "Signature",
+									"value": "VWZmPJLbr8kxTJxKWF%2BvoFPduLU%3D"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-150442b1-2fb7-4e14-b1f3-5138fbf708d4"
+		},
+		{
+			"name": "Car Listings",
+			"item": [
+				{
+					"name": "Get Cars List",
+					"id": "30817430-04c94e7e-1476-4934-bc0b-d4c2a0bf834e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_TOKEN"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/car/getlistings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"getlistings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Car By Id",
+					"id": "30817430-be9bce95-d755-427c-95da-02df07e3e513",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/car/listing/66ab86be26ac9b0ec7ccfdd0",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"listing",
+								"66ab86be26ac9b0ec7ccfdd0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Car By Autograb",
+					"id": "30817430-8ab31e0c-6321-4705-809a-3ae548362bda",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"event\": \"UPDATE\",\r\n  \"lead\": {\r\n    \"dealer_id\": \"123ABC\",\r\n    \"est_retail\": 7817,\r\n    \"est_trade\": 5081,\r\n    \"price\": 8000,\r\n    \"price_includes_govt_charges\": false,\r\n    \"price_before_govt_charges\": 8000,\r\n    \"drive_away_price\": 8275,\r\n    \"cover_image_url\": \"https://storage.googleapis.com/download/storage/v1/b/ag-img/o/1712139172331%2F434646084_101598.jpg?generation=1712139173132922&alt=media\",\r\n    \"image_url_2\": \"https://storage.googleapis.com/download/storage/v1/b/ag-img/o/1712139173467%2F434665254_101598.jpg?generation=1712139174166581&alt=media\",\r\n    \"image_url_3\": \"https://storage.googleapis.com/download/storage/v1/b/ag-img/o/1712139174973%2F434651540_101598.jpg?generation=1712139175693420&alt=media\",\r\n    \"image_url_4\": \"https://storage.googleapis.com/download/storage/v1/b/ag-img/o/1712139176286%2F434714618_101598.jpg?generation=1712139177111334&alt=media\",\r\n    \"image_url_5\": \"https://storage.googleapis.com/download/storage/v1/b/ag-img/o/1712139177699%2F434667724_101598.jpg?generation=1712139178418969&alt=media\",\r\n    \"vehicle_title\": \"2015 Holden Cruze CD JH Series II Auto MY15\",\r\n    \"year\": 2015,\r\n    \"make\": \"Holden\",\r\n    \"model\": \"Cruze\",\r\n    \"badge\": \"CD\",\r\n    \"series\": \"JH Series II\",\r\n    \"color\": \"white\",\r\n    \"id\": \"25c57f60-f040-446c-b4c0-8a79a242a7a4\",\r\n    \"listed_at\": \"2024-04-03 09:56:32.000\",\r\n    \"postcode\": \"2483\",\r\n    \"suburb\": \"Billinudgel\",\r\n    \"state\": \"NSW\",\r\n    \"formatted_location\": \"Billinudgel NSW 2483, Australia\",\r\n    \"kms\": 158000,\r\n    \"rego\": \"ESF09B\",\r\n    \"vin\": \"6G1PD6EM4FL114734\",\r\n    \"stock_no\": null,\r\n    \"drive_type\": \"Front Wheel Drive\",\r\n    \"power_kw\": 104,\r\n    \"body_type\": \"Wagon\",\r\n    \"body_config_type\": null,\r\n    \"capacity_cc\": 1796,\r\n    \"engine_type\": \"Piston\",\r\n    \"fuel_type\": \"Petrol\",\r\n    \"num_seats\": 5,\r\n    \"model_version\": \"0.2.1-3.7aN22\",\r\n    \"model_year\": \"MY15\",\r\n    \"num_cylinders\": 4,\r\n    \"num_doors\": 5,\r\n    \"num_gears\": 6,\r\n    \"range\": 1053,\r\n    \"release_month\": 1,\r\n    \"release_year\": 2015,\r\n    \"starting_price\": 8000,\r\n    \"torque_nm\": 175,\r\n    \"transmission_type\": \"Automatic\",\r\n    \"vehicle_age_years\": 6,\r\n    \"vehicle_rrp\": 24090,\r\n    \"wheelbase_type\": null,\r\n    \"removed_at\": null\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/autograb",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"autograb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-car-listing West",
+					"id": "30817430-59b7a6f4-b3dd-4098-bbd6-8083b0c1d4f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Type\": \"CAR\",\r\n  \"Identifier\": 431883,\r\n  \"ListingType\": \"used\",\r\n  \"SaleStatus\": \"For Sale\",\r\n  \"SaleType\": \"Retail\",\r\n  \"Description\": \"** PLEASE NOTE – VEHICLE PRICED TO SELL – PLEASE CONSIDER BUDGET PRIOR TO ENQUIRY **\\n\\n** ENSURE ALL PHOTOS ARE LOOKED AT PRIOR TO ENQUIRY **\\n\\n** YES, WE TAKE ALL TRADE IN VEHICLES – ONSITE FINANCE AVAILABLE **\\n\\n** MELBOURNE CBD LOCATION – IF THIS IS TOO FAR AND YOU ARE READY TO PURCHASE WE WILL BRING THE CAR TO YOU^ **\\n\\n** 2017 FORD MUSTANG FASTBACK GT ** SHADOW BLACK **\\n\\n- 5.0L V8 ENGINE\\n\\n- 6 SPEED SPORTS AUTOMATIC\\n\\n- NAVIGATION\\n\\n- LEATHER\\n\\n- FRONT HEATED AND VENTILATED SEATING\\n\\n- 19\\\" BLACK ALLOY WHEELS\\n\\n- REVERSE CAMERA WITH DYNAMIC GUIDE LINES\\n\\nAND MUCH MORE!\\n\\nThis vehicle will come fully prepared and inclusive of:\\n\\n- Transfer fees\\n\\n- Stamp Duty\\n\\n- RWC Road Worthy Certificate\\n\\n- Full Safety Inspection\\n\\n- Fully Detailed in and out\\n\\n- Sanitized\\n\\n- Warranty\\n\\n- Registration\\n\\n- Drive Away no more to pay\\n\\nOur award-winning dealership is conveniently located only 1 km from the CBD, right off the freeway in the heart of Melbourne.\\n\\nWe can arrange competitive finance and warranty options with an aftercare team that helps ensure your new vehicle is best looked after.\\n\\nThe quality assurance continues with each pre-owned vehicle being sent to our workshop for a comprehensive inspection.\\nThese are carried out by our fully trained and qualified technicians, and the backing of one of the largest dealerships in Australia, delivered with a current Victorian RWC and Australian wide statutory warranty.\\n\\nWe offer trade in valuations, convenient interstate vehicle transport, friendly customer service with years of experience and much more!\\n\\nIf you can't come in and see the vehicle, we are more than happy to travel to your home or office.\\n\\nEnquire now for a video tour of the car!\\n\\nFor an easy and hassle-free purchase contact us today! If you can't find the car, you’re interested in please contact us, between our retail and wholesale departments we have over 100+ quality vehicles in stock!\\n\\n*Please note the vehicle features and options listed in this advertisement are automatically supplied by Redbook code for this make/model and are not specific to this vehicle.\\nPlease confirm options list with selling dealer\\n^ Home test drives are completed on a sold vehicle with subject to inspection clause\",\r\n  \"Registration\": {\r\n    \"Number\": \"UNREG\",\r\n    \"ExpiresUtc\": null\r\n  },\r\n  \"Identification\": [\r\n    {\r\n      \"Type\": \"StockNumber\",\r\n      \"Value\": \"UJ8114\"\r\n    },\r\n    {\r\n      \"Type\": \"VIN\",\r\n      \"Value\": \"1FA6P8CF0H5297330\"\r\n    }\r\n  ],\r\n  \"Colours\": [\r\n    {\r\n      \"Location\": \"Exterior\",\r\n      \"Name\": \"Black\"\r\n    },\r\n    {\r\n      \"Location\": \"Interior\",\r\n      \"Name\": \"Black\"\r\n    }\r\n  ],\r\n  \"OdometerReadings\": [\r\n    {\r\n      \"Type\": \"\",\r\n      \"Value\": 107216,\r\n      \"UnitOfMeasure\": \"KM\"\r\n    }\r\n  ],\r\n  \"Seller\": {\r\n    \"Identifier\": 87,\r\n    \"Type\": \"Dealer\",\r\n    \"Name\": \"Hopper Motor Group\",\r\n    \"LocationCode\": null,\r\n    \"LocationName\": \"City Jeep\",\r\n    \"LocationId\": 144,\r\n    \"DealershipGroupNames\": [],\r\n    \"Addresses\": [\r\n      {\r\n        \"Line1\": \"228-238 Normanby Rd\",\r\n        \"Suburb\": \"Southbank\",\r\n        \"State\": \"VIC\",\r\n        \"Postcode\": 3006\r\n      }\r\n    ]\r\n  },\r\n  \"Specification\": {\r\n    \"Identifier\": 431883,\r\n    \"SpecificationSource\": \"REDBOOK\",\r\n    \"SpecificationCode\": \"AUVFORD2017AEBM\",\r\n    \"Description\": null,\r\n    \"CountryCode\": \"AU\",\r\n    \"Make\": \"Ford\",\r\n    \"Model\": \"Mustang\",\r\n    \"Series\": \"FM\",\r\n    \"ReleaseDate\": {\r\n      \"Year\": 2017\r\n    },\r\n    \"Title\": \"2017 Ford Mustang GT FM\",\r\n    \"Attributes\": [\r\n      {\r\n        \"Name\": \"Badge\",\r\n        \"Value\": \"GT\"\r\n      },\r\n      {\r\n        \"Name\": \"EngineType\",\r\n        \"Value\": \"Piston\"\r\n      },\r\n      {\r\n        \"Name\": \"EngineSize\",\r\n        \"Value\": 4951\r\n      },\r\n      {\r\n        \"Name\": \"EngineSizeLitres\",\r\n        \"Value\": 4.95\r\n      },\r\n      {\r\n        \"Name\": \"FuelConsumptionLitres\",\r\n        \"Value\": 12\r\n      },\r\n      {\r\n        \"Name\": \"Cylinders\",\r\n        \"Value\": 8\r\n      },\r\n      {\r\n        \"Name\": \"FuelType\",\r\n        \"Value\": \"Petrol\"\r\n      },\r\n      {\r\n        \"Name\": \"Transmission\",\r\n        \"Value\": \"Automatic\"\r\n      },\r\n      {\r\n        \"Name\": \"Gears\",\r\n        \"Value\": 6\r\n      },\r\n      {\r\n        \"Name\": \"Drive\",\r\n        \"Value\": \"Rear Wheel Drive\"\r\n      },\r\n      {\r\n        \"Name\": \"BodyStyle\",\r\n        \"Value\": \"Coupe\"\r\n      },\r\n      {\r\n        \"Name\": \"Doors\",\r\n        \"Value\": 2\r\n      },\r\n      {\r\n        \"Name\": \"Seats\",\r\n        \"Value\": 4\r\n      }\r\n    ]\r\n  },\r\n  \"Media\": {\r\n    \"Photos\": [\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475536/photo/medium-b4d7e8ae4dc3e2f270fbb0c726c4c926.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475536/photo/large-314197fa61b5dc25d396f4554a3bae0d.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475538/photo/medium-1370f7d0a272007295141ff9ea094bd7.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475538/photo/large-19a16af58451f8f94d2f99b4ee873252.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475539/photo/medium-e98b54caaed98e671fc5ec8e73f32205.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475539/photo/large-e5c74b519df48a317bf1775c03aee2dc.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475540/photo/medium-c96b486338266068e633898acc4ea57f.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475540/photo/large-e8b45f108974660282169b85c7154964.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475541/photo/medium-dab287498bbc74c1493426b481ba8bc4.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475541/photo/large-e5a77eb53c842dac9d93dd5f44699b99.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475542/photo/medium-a7cc80cc24eee619d9f13a39178b9bd4.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475542/photo/large-7455bfaee79d18bba20341df0e12c060.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475543/photo/medium-373f10fe23a6b4e8eb76a7964f3b708c.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475543/photo/large-7de8809639c3c394562f9f7e32b511f9.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475544/photo/medium-72d3458579d2df817367574b7a9ecc87.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475544/photo/large-73041ef47f84e13d5916d9981fece07f.jpg\"\r\n        }\r\n      },\r\n      {\r\n        \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475545/photo/medium-649b79510e4fd7dd73c9e50f33b2efb5.jpg\",\r\n        \"Large\": {\r\n          \"Url\": \"https://d2s8i866417m9.cloudfront.net/photo/15475545/photo/large-a0f75a1cb98c71e7249a1dcdb3fd58fa.jpg\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/updatcarhook",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updatcarhook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Prospects",
+					"id": "30817430-80d8e958-aca3-4c9b-b7c4-302be0705256",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/car/preference/init/64e6f120c31c0b7d061eba5d/666979dc7f803463a44fd972",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"preference",
+								"init",
+								"64e6f120c31c0b7d061eba5d",
+								"666979dc7f803463a44fd972"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-0ea936ff-6cd6-4469-8347-2920f3b3daa2"
+		},
+		{
+			"name": "Encryption",
+			"item": [
+				{
+					"name": "encrypter",
+					"id": "30817430-52c35ec1-ca76-4da0-a070-ebf05649838d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3NTA4NDkyMTksImV4cCI6MTc1NjAzMzIxOSwidHlwZSI6ImFjY2VzcyJ9.Gsglvk2LUZyNQy1AOPr83sr13Y5hqv6VNpvmyuKO1j8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzEwODVhODAwYWQ2YTUzY2RmZDBkOTgiLCJpYXQiOjE3MzI3MTU3NjIsImV4cCI6MTc0ODI2Nzc2MiwidHlwZSI6ImFjY2VzcyJ9.66FEqEK4w65t3boN08xOZjD0KfpXXnYGk4lQZFaqcfc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n//   \"firstName\": \"Rehan nu\",\r\n//   \"lastName\": \"Butt\",\r\n//   \"image\": \"\",\r\n//   \"location\":{\r\n//   \"latitude\": 37.7749,\r\n//   \"longitude\": -122.4194,\r\n//   \"address\": \"123 Main Street\",\r\n//   \"city\": \"San Francisco\",\r\n//   \"state\": \"California\",\r\n//   \"street\": \"Main Street\",\r\n//   \"postcode\": \"94103\",\r\n//   \"suburb\": \"Downtown\"\r\n\r\n\r\n// \"email\": \"hamzaasad2026@gmail.com\",\r\n//   \"password\": \"Hamza@12345\",\r\n//   \"role\": \"dealer\"\r\n//   \"firebaseToken\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6IjY3ZDhjZWU0ZTYwYmYwMzYxNmM1ODg4NTJiMjA5MTZkNjRjMzRmYmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYXNrYXV0b2JlZS1kZXYiLCJhdWQiOiJhc2thdXRvYmVlLWRldiIsImF1dGhfdGltZSI6MTc0NzM4OTAwNCwidXNlcl9pZCI6InpKeERwT3NDWkZUOHFXWGdZYm9sNEdQaFVvcTIiLCJzdWIiOiJ6SnhEcE9zQ1pGVDhxV1hnWWJvbDRHUGhVb3EyIiwiaWF0IjoxNzQ3Mzg5MDA0LCJleHAiOjE3NDczOTI2MDQsImVtYWlsIjoicmVoYW4uYnV0dEBjYXJiZWUuYXUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInBob25lX251bWJlciI6Iis5MjMxMTg4NzE1ODIiLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInJlaGFuLmJ1dHRAY2FyYmVlLmF1Il0sInBob25lIjpbIis5MjMxMTg4NzE1ODIiXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwaG9uZSJ9fQ.khKUvAHI0zwPhNVaXPKJ4R3L6OSzwHo6MH9BWPRQy_zet8pws4CouN4nrz9SdoZjnos_GSF28SFf3xz3JsE_mimjQx1WSZfPvQLlmYtChVgabB2zOuSQfx1hKNPLmAoWHOpk3cds3C_uRp2Ne23ywMin4w6WpFv6QN9yNAFw0h4eNS_L8KepyPTt1kaU9TPzYkfQ_KNl4cJE0qDXX7aWX7ZP6eCzexkpQhhUuAzuhPfpGhYWPDi0TTT3Iz2yqD77LKaRQqYi0s40902N1_K93qWDtcR2qZVE4VViir8BVvvxbGhFiZVZI77KDdycq5U_U9XaZ9kyBX2e3nUZj4Te6A\"\r\n\r\n//   \"years\": {\r\n//     \"max\": 2019,\r\n//     \"min\": 1990\r\n//   },\r\n//   \"sellerType\": \"Dealer\"\r\n\"status\": \"DELETED\"\r\n\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{QA}}/api/v1/super-admin/encrypter",
+							"host": [
+								"{{QA}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"super-admin",
+								"encrypter"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-1b2be146-6b52-48f5-a3b6-1399b115d4cf"
+		},
+		{
+			"name": "Ratings",
+			"item": [
+				{
+					"name": "Get Dealership Rating",
+					"id": "30817430-15e267de-fa6f-4c81-88a0-5bac072dd8b1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MDk3MDAxNjIsImV4cCI6MTcwOTg4MDE2MiwidHlwZSI6ImFjY2VzcyJ9.EW4kfS-CLQHGb2B0mQmDp8V4bgdgwGhOaHgMC-6htks"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship/rating/65e5a6e868ce6bc663018edc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship",
+								"rating",
+								"65e5a6e868ce6bc663018edc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/customers/dealerShipRating/65dee7493169180188e63d80",
+					"id": "30817430-750e758e-b788-4adf-b178-76bed7ae2dd5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MTAxNDM4ODQsImV4cCI6MTcxMDMyMzg4NCwidHlwZSI6ImFjY2VzcyJ9.SCabBuEVVMtk4_uX69tzMeCcp_q7vhpdTh8QogkvbTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/dealerShipRating/65dee7493169180188e63d80",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"dealerShipRating",
+								"65dee7493169180188e63d80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dealership Ratings",
+					"id": "30817430-c6c32eea-2170-45dc-bfdf-db5ed1f83159",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MjcxNTMyNzYsImV4cCI6MTc0MjcwNTI3NiwidHlwZSI6ImFjY2VzcyJ9.M3ueYl0Bz5DT0YXM60HTxOOU8y7Lym-mebqJWzittQI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MDk3MDAxNjIsImV4cCI6MTcwOTg4MDE2MiwidHlwZSI6ImFjY2VzcyJ9.EW4kfS-CLQHGb2B0mQmDp8V4bgdgwGhOaHgMC-6htks"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Example Dealer\",\n  \"address\": \"123 Example St\",\n  \"phone\": \"123-456-7890\",\n\n  \"description\": \"Example dealer description\",\n  \"image\": \"https://example.com/image.jpg\",\n  \"password\": \"1234567a\",\n  \"autoAssignLead\": true,\n  \"websiteUrl\": \"https://example.com\",\n  \"dealerShipLocation\": {\n    \"latitude\": 40.7128,\n    \"longitude\": -74.006,\n    \"address\": \"123 Example St\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"street\": \"Example St\",\n    \"postcode\": \"10001\"\n  },\n  \"tradingHours\": {\n    \"monday\": { \"open\": \"09:00\", \"close\": \"18:00\" },\n    \"tuesday\": { \"open\": \"09:00\", \"close\": \"18:00\" },\n    \"wednesday\": { \"open\": \"09:00\", \"close\": \"18:00\" },\n    \"thursday\": { \"open\": \"09:00\", \"close\": \"18:00\" },\n    \"friday\": { \"open\": \"09:00\", \"close\": \"18:00\" },\n    \"saturday\": { \"open\": \"09:00\", \"close\": \"18:00\" },\n    \"sunday\": { \"open\": \"09:00\", \"close\": \"18:00\" }\n  }\n}\n"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dealer-ship/rating/6613d09f83a51f8bc871d635",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer-ship",
+								"rating",
+								"6613d09f83a51f8bc871d635"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Ratings",
+					"id": "30817430-615b319f-d61d-4b1c-ac3e-730b2e33a0a6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjcwODQ3NjgsImV4cCI6MTc0MjYzNjc2OCwidHlwZSI6ImFjY2VzcyJ9.9OIoE_3pGskkXvCoyQeUot-QRALcbwF5noiUqPymm3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MTAxNDM4ODQsImV4cCI6MTcxMDMyMzg4NCwidHlwZSI6ImFjY2VzcyJ9.SCabBuEVVMtk4_uX69tzMeCcp_q7vhpdTh8QogkvbTI"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "dealershipStaffId",
+									"value": "6613d29483a51f37c871d689",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "ewdr",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "65dd764e316918b3aee63588",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/dealerShipRating/65f008364b3373c74f85ac0a",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"dealerShipRating",
+								"65f008364b3373c74f85ac0a"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-ce1674c2-772d-4bf6-aebe-7bb11ac32fc4"
+		},
+		{
+			"name": "External Systems (Docs)",
+			"item": [
+				{
+					"name": "Auto Grab",
+					"item": [
+						{
+							"name": "BY Rego",
+							"id": "30817430-ba09d36f-b29e-48b2-92fe-6a2785860c0f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "{ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"region\": \"au\",\r\n  \"odometer\": 10000,\r\n  \"listing_price\": 30000,\r\n  \"vin\": \"2T1BY32E95C347786\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/registrations/BDA397?region=au&state=VIC",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"registrations",
+										"BDA397"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "state",
+											"value": "VIC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BY Rego Copy",
+							"id": "30817430-e0aa3f61-861d-4652-98f3-c0ef6162ddf6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "{ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo}"
+									}
+								],
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/registrations/CRZ735?region=au&state=VIC",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"registrations",
+										"CRZ735"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "state",
+											"value": "VIC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Vechicle-BY-ID",
+							"id": "30817430-0db7984d-8088-4ebc-8495-aea894a19d94",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/6314476940820480?region=au",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"6314476940820480"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Facet Search",
+							"id": "30817430-77096643-bd4e-4d69-9eac-34d638a69c1f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/facets/search?region=au&year=2021&badge=GT&limit=400&serires=FN&make=Ford&model=Mustang",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"facets",
+										"search"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "year",
+											"value": "2021"
+										},
+										{
+											"key": "badge",
+											"value": "GT"
+										},
+										{
+											"key": "limit",
+											"value": "400"
+										},
+										{
+											"key": "series",
+											"value": "FN",
+											"disabled": true
+										},
+										{
+											"key": "serires",
+											"value": "FN"
+										},
+										{
+											"key": "make",
+											"value": "Ford"
+										},
+										{
+											"key": "model",
+											"value": "Mustang"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Facets",
+							"id": "30817430-d7544c01-ea4c-4a07-8127-422681685080",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/facets/search?make=Ford&model=Mustang&region=au&badge=GT&limit=400",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"facets",
+										"search"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "Ford"
+										},
+										{
+											"key": "model",
+											"value": "Mustang"
+										},
+										{
+											"key": "series",
+											"value": "TF",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "year",
+											"value": "2023",
+											"disabled": true
+										},
+										{
+											"key": "badge",
+											"value": "GT"
+										},
+										{
+											"key": "limit",
+											"value": "400"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "private-Ads/facet/vehicle",
+							"id": "30817430-a2293bae-2779-43af-bae5-965c78e6bf07",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MjM3OTU1NjksImV4cCI6MTcyMzk3NTU2OSwidHlwZSI6ImFjY2VzcyJ9.r0YRD3s9lF0v8SLrSHQkXcm_R6Pb5S3uS6L-N415ymQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "{API_KEY}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"make\": \"Mazda\",\r\n  \"model\": \"BT-50\",\r\n  \"series\": \"TF\",\r\n  \"year\": \"2023\",\r\n  \"badge\": \"XT\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{SB}}/api/v1/private-Ads/facet/vehicle?limit=1&page=2",
+									"host": [
+										"{{SB}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"private-Ads",
+										"facet",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1"
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Price",
+							"id": "30817430-48f6cc31-a456-4992-9720-1b7779d0c081",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"region\": \"au\",\r\n  \"vehicle_id\": \"6746602593058816\",\r\n  \"kms\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/valuations/predict",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"valuations",
+										"predict"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au",
+											"disabled": true
+										},
+										{
+											"key": "l",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "state",
+											"value": "VIC",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specs",
+							"id": "30817430-f0506b27-2e8b-46b9-98ca-83f3c15243bb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "ApiKey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "{API_KEY}"
+									}
+								],
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/5600812491341824/specs?region=au",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"5600812491341824",
+										"specs"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search facets for car",
+							"id": "30817430-d5ffe9a9-b884-4b87-b322-26fed2210729",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/facets?region=au&facet=make",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"facets"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "Ford",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "Mustang",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "badge",
+											"value": "GT",
+											"disabled": true
+										},
+										{
+											"key": "facet",
+											"value": "make"
+										},
+										{
+											"key": "series",
+											"value": "FM",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "vin",
+							"id": "30817430-77cc74b2-c857-475b-8c6c-62a659240d69",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/vins/JTDBCMFE5RJ022593?region=au&state=VIC",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"vins",
+										"JTDBCMFE5RJ022593"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "state",
+											"value": "VIC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "30817430-82acd5b8-5a0f-48cd-8442-7682c1277864",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "ApiKey",
+										"value": "ZRmCxonfTP4mBMV4nk7c9Adrk0pxUHLy6qcQ4mS9Qo"
+									}
+								],
+								"url": {
+									"raw": "https://api.autograb.com.au/v2/vehicles/2756120678262620/specs/partial?region=au&selectors=base&safetyregion=au",
+									"protocol": "https",
+									"host": [
+										"api",
+										"autograb",
+										"com",
+										"au"
+									],
+									"path": [
+										"v2",
+										"vehicles",
+										"2756120678262620",
+										"specs",
+										"partial"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "selectors",
+											"value": "base"
+										},
+										{
+											"key": "safetyregion",
+											"value": "au"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "30817430-26887c1b-6e49-42e3-a075-d47e742e2416",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-ff2ec94a-8467-4fa7-8b2d-924159e7dfc2"
+				},
+				{
+					"name": "EasyCars",
+					"item": [
+						{
+							"name": "requestToken - Test",
+							"id": "30817430-a0e0c2ac-2672-4645-beb5-8afa9e9f87e9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "ASP.NET_SessionId=idg5brxuh4jnw4laz0rju2ia"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/ECWCF/LeadService/RequestToken?ClientID= E84E6E4F-E46B-4B4C-9F95-82A0079E6169&ClientSecret= A32D6BD1-8F61-4EBF-A943-9A8129663E32",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"ECWCF",
+										"LeadService",
+										"RequestToken"
+									],
+									"query": [
+										{
+											"key": "ClientID",
+											"value": " E84E6E4F-E46B-4B4C-9F95-82A0079E6169"
+										},
+										{
+											"key": "ClientSecret",
+											"value": " A32D6BD1-8F61-4EBF-A943-9A8129663E32"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "StockService - test",
+							"id": "30817430-0c9c42ea-15dd-4e5d-8b2c-299cb4b9dc91",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request Token",
+							"id": "30817430-fae0ccb8-a530-4957-8bdd-72b8dc09cbe5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "ASP.NET_SessionId=idg5brxuh4jnw4laz0rju2ia"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/ECWCF/LeadService/RequestToken?ClientID= E84E6E4F-E46B-4B4C-9F95-82A0079E6169&ClientSecret= A32D6BD1-8F61-4EBF-A943-9A8129663E32",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"ECWCF",
+										"LeadService",
+										"RequestToken"
+									],
+									"query": [
+										{
+											"key": "ClientID",
+											"value": " E84E6E4F-E46B-4B4C-9F95-82A0079E6169"
+										},
+										{
+											"key": "ClientSecret",
+											"value": " A32D6BD1-8F61-4EBF-A943-9A8129663E32"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Stock",
+							"id": "30817430-bb26ff3b-4706-4b33-8390-53f7af636a47",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Cookie",
+										"value": "ASP.NET_SessionId=oj2qfwlk05a1rplgyjlp4iau"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"AccountNumber\":\"EC103815\",\n\"AccountSecret\":\"f9171363-ae0e-47c1-82df-a299cc88a53b\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://testmy.easycars.com.au/TestECService/StockService/GetAdvertisementStocks",
+									"protocol": "http",
+									"host": [
+										"testmy",
+										"easycars",
+										"com",
+										"au"
+									],
+									"path": [
+										"TestECService",
+										"StockService",
+										"GetAdvertisementStocks"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-ecf71c74-8579-4061-93a9-c109860c5d84"
+				},
+				{
+					"name": "Google",
+					"item": [
+						{
+							"name": "Geo code",
+							"id": "30817430-1a64a5f1-3075-435e-8006-08e6d0078eac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.geocod.io/v1.6/geocode?q=6013&api_key=368b683aa3d368c63c9669969c6d93a696a6c6d ",
+									"protocol": "https",
+									"host": [
+										"api",
+										"geocod",
+										"io"
+									],
+									"path": [
+										"v1.6",
+										"geocode"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "6013"
+										},
+										{
+											"key": "api_key",
+											"value": "368b683aa3d368c63c9669969c6d93a696a6c6d "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Google",
+							"id": "30817430-b6db5c19-2c81-49c7-a970-f37c21340b0f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://maps.googleapis.com/maps/api/geocode/json?region=au&key=AIzaSyARAUUvvZ7BAF8ShjFbZZUOgfB5Wk9HsII",
+									"protocol": "https",
+									"host": [
+										"maps",
+										"googleapis",
+										"com"
+									],
+									"path": [
+										"maps",
+										"api",
+										"geocode",
+										"json"
+									],
+									"query": [
+										{
+											"key": "region",
+											"value": "au"
+										},
+										{
+											"key": "key",
+											"value": "AIzaSyARAUUvvZ7BAF8ShjFbZZUOgfB5Wk9HsII"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ratting API",
+							"id": "30817430-3820d094-fca8-4d71-8f78-382fcbbcfbc8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJtRNJQQZZkWsRbvCrjCt4mVE&key=AIzaSyDMC-goEXAAG1q3zhSrmj_FbZ2kjolZhnw",
+									"protocol": "https",
+									"host": [
+										"maps",
+										"googleapis",
+										"com"
+									],
+									"path": [
+										"maps",
+										"api",
+										"place",
+										"details",
+										"json"
+									],
+									"query": [
+										{
+											"key": "place_id",
+											"value": "ChIJtRNJQQZZkWsRbvCrjCt4mVE"
+										},
+										{
+											"key": "key",
+											"value": "AIzaSyDMC-goEXAAG1q3zhSrmj_FbZ2kjolZhnw"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "google-place",
+							"id": "30817430-3975f02f-e8c5-4094-8f13-3d4db0b6e5da",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://maps.googleapis.com/maps/api/geocode/json?address=CIty Jeep, AU&key=AIzaSyDMC-goEXAAG1q3zhSrmj_FbZ2kjolZhnw",
+									"protocol": "https",
+									"host": [
+										"maps",
+										"googleapis",
+										"com"
+									],
+									"path": [
+										"maps",
+										"api",
+										"geocode",
+										"json"
+									],
+									"query": [
+										{
+											"key": "address",
+											"value": "CIty Jeep, AU"
+										},
+										{
+											"key": "key",
+											"value": "AIzaSyDMC-goEXAAG1q3zhSrmj_FbZ2kjolZhnw"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-e650d32f-8f23-452a-8df6-0fee85f85b78"
+				},
+				{
+					"name": "Intellisoft",
+					"item": [
+						{
+							"name": "Picture Blur",
+							"id": "30817430-0b3ce7fb-35e9-4da8-b268-372fb354881e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorizationToken",
+										"value": ":2$90Z(rUCEs"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer :2$90Z(rUCEs"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"image_url\": \"https://carbee-media.s3.ap-southeast-2.amazonaws.com/9ddb2890-5236-4a22-9f50-d858fd9efa8c/Back.png\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://hpvbw0j2oi.execute-api.ap-southeast-2.amazonaws.com/v1/LPBlurringPic",
+									"protocol": "https",
+									"host": [
+										"hpvbw0j2oi",
+										"execute-api",
+										"ap-southeast-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"v1",
+										"LPBlurringPic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Intelli all videos",
+							"id": "30817430-e52beb4e-4bc0-445f-800f-87d770d2c79c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": ":2$90Z(rUCEs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorizationToken",
+										"value": ":2$90Z(rUCEs"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"action\":\"list\"\n    // \"video_id\": \"681c93c089878569c81aad9a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://hpvbw0j2oi.execute-api.ap-southeast-2.amazonaws.com/v1/CarbeeRemoveVideo",
+									"protocol": "https",
+									"host": [
+										"hpvbw0j2oi",
+										"execute-api",
+										"ap-southeast-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"v1",
+										"CarbeeRemoveVideo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "intelli Delete",
+							"id": "30817430-67753f58-a0c4-4067-b4c4-848930428958",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorizationToken",
+										"value": ":2$90Z(rUCEs"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer :2$90Z(rUCEs"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"action\":\"delete\",\n    \"video_id\":\"66e3d5c3b04493615cb8bf3d\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://hpvbw0j2oi.execute-api.ap-southeast-2.amazonaws.com/v1/CarbeeRemoveVideo",
+									"protocol": "https",
+									"host": [
+										"hpvbw0j2oi",
+										"execute-api",
+										"ap-southeast-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"v1",
+										"CarbeeRemoveVideo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Video Status",
+							"id": "30817430-9b20c8f6-86c5-4f72-a1c0-23c557e1029e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorizationToken",
+										"value": ":2$90Z(rUCEs"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer :2$90Z(rUCEs"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"action\":\"delete\",\n    \"video_id\":\"66e3d5c3b04493615cb8bf3d\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://hpvbw0j2oi.execute-api.ap-southeast-2.amazonaws.com/v1/getUpdatedVideo?video_id=682d528e646ba75b730b38cb",
+									"protocol": "https",
+									"host": [
+										"hpvbw0j2oi",
+										"execute-api",
+										"ap-southeast-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"v1",
+										"getUpdatedVideo"
+									],
+									"query": [
+										{
+											"key": "video_id",
+											"value": "682d528e646ba75b730b38cb"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "intelli - Feed",
+							"id": "30817430-e09a6bfa-84eb-49e1-9ee8-6c4ae50ff7d4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorizationToken",
+										"value": ":2$90Z(rUCEs"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"customer_id\":\"6948f68b9b4e829c9839f73e\",\"customer_info\":{\"latitude\":-33.859953,\"longitude\":151.256649,\"state\":\"NSW\",\"suburb\":\"SYDNEY\",\"fuel_type\":[\"diesel\"],\"body_style\":[],\"car_usage\":[],\"price_max\":250000,\"price_min\":0,\"new_preferences\":false,\"country\":\"Australia\",\"radius\":15},\"recom_numb\":5,\"interactions\":{\"6814e054fd4db5f926c293ba\":[0.28205128205128205],\"6856a08af7c5b8b7df3421da\":[0.06]}}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://hpvbw0j2oi.execute-api.ap-southeast-2.amazonaws.com/v1/getVideoList",
+									"protocol": "https",
+									"host": [
+										"hpvbw0j2oi",
+										"execute-api",
+										"ap-southeast-2",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"v1",
+										"getVideoList"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-0ab29d3d-95d7-4699-a87f-87840914b1d8"
+				},
+				{
+					"name": "Evox",
+					"item": [
+						{
+							"name": "samples-viflists",
+							"id": "30817430-5621deb7-f54a-4dd9-b968-6bb3aa8398ab",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.evoximages.com/api/v1/samples/viflists/?api_key=XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5",
+									"protocol": "https",
+									"host": [
+										"api",
+										"evoximages",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"samples",
+										"viflists",
+										""
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "North America",
+							"id": "30817430-058bd9bf-d987-4cc5-a615-2da9c3ae6e10",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.evoximages.com/api/v1/vehicles/9293/products/29/246?api_key=XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5&color_code=077",
+									"protocol": "https",
+									"host": [
+										"api",
+										"evoximages",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vehicles",
+										"9293",
+										"products",
+										"29",
+										"246"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5"
+										},
+										{
+											"key": "color_code",
+											"value": "077"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MMBY search NA",
+							"id": "30817430-e79dabc8-3b9e-4421-940c-85a05761da94",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.evoximages.com/api/v1/vehicles/?api_key=XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5&make=Mercedes-Benz&model=CLA-Class&year=2015&pid=29&ptid=246",
+									"protocol": "https",
+									"host": [
+										"api",
+										"evoximages",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vehicles",
+										""
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5"
+										},
+										{
+											"key": "make",
+											"value": "Mercedes-Benz"
+										},
+										{
+											"key": "model",
+											"value": "CLA-Class"
+										},
+										{
+											"key": "year",
+											"value": "2015"
+										},
+										{
+											"key": "pid",
+											"value": "29"
+										},
+										{
+											"key": "ptid",
+											"value": "246"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EU International",
+							"id": "30817430-1c41b3a7-0443-4388-bb10-85f102d0bf9c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.evoximages.com/api/v1/vehicles/?api_key=XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5&vin=1FA6P8NF0J5148418&pid=29&ptid=246",
+									"protocol": "https",
+									"host": [
+										"api",
+										"evoximages",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vehicles",
+										""
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5"
+										},
+										{
+											"key": "vin",
+											"value": "1FA6P8NF0J5148418"
+										},
+										{
+											"key": "pid",
+											"value": "29"
+										},
+										{
+											"key": "ptid",
+											"value": "246"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MMBY search EU",
+							"id": "30817430-e7662cd8-07be-458a-9003-4a99d97f13fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.evoximages.com/api/v1/vehicles/?year=2019&make=Mitsubishi&model=Outlander&trim=PHEV ES ADAS&api_key=XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5&pid=56&ptid=698",
+									"protocol": "https",
+									"host": [
+										"api",
+										"evoximages",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vehicles",
+										""
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2019"
+										},
+										{
+											"key": "make",
+											"value": "Mitsubishi"
+										},
+										{
+											"key": "model",
+											"value": "Outlander"
+										},
+										{
+											"key": "trim",
+											"value": "PHEV ES ADAS"
+										},
+										{
+											"key": "api_key",
+											"value": "XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5"
+										},
+										{
+											"key": "pid",
+											"value": "56"
+										},
+										{
+											"key": "ptid",
+											"value": "698"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "color",
+							"id": "30817430-135aac80-d1bb-4281-bb9a-e254de8f2f93",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.evoximages.com/api/v1/vehicles/9293/colors?api_key=XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5",
+									"protocol": "https",
+									"host": [
+										"api",
+										"evoximages",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vehicles",
+										"9293",
+										"colors"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "XT4ycMFeg7jZSkExmqdNw3fB2UL6DsA5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "30817430-b528d81d-0b52-4798-bbdd-b0cdc5fbb030",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-2a7fc9c7-fb8d-4237-8740-dd3bb388983d"
+				},
+				{
+					"name": "Add Torque",
+					"item": [
+						{
+							"name": "get stock - Alto",
+							"id": "30817430-1d874df0-2ab2-4c38-8db0-177967c741e3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "nvk2wgj1mpr-VDP0fuf",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "stock@carbee.com.au",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.adtorqueedge.com/stock/?websiteID=MDM2OWF0ZVh1SjJxcXF3WU1Ra1VEY2Nja01C&format=JSON&perPage=10",
+									"protocol": "https",
+									"host": [
+										"api",
+										"adtorqueedge",
+										"com"
+									],
+									"path": [
+										"stock",
+										""
+									],
+									"query": [
+										{
+											"key": "websiteID",
+											"value": "MDM2OWF0ZVh1SjJxcXF3WU1Ra1VEY2Nja01C"
+										},
+										{
+											"key": "category",
+											"value": "Used",
+											"disabled": true
+										},
+										{
+											"key": "lastUpdated",
+											"value": "2025-01-09T12%3A00%3A00",
+											"disabled": true
+										},
+										{
+											"key": "format",
+											"value": "JSON"
+										},
+										{
+											"key": "perPage",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get stock - CD Motor Group",
+							"id": "30817430-8547c25c-7b81-4e5c-b465-75dc70c54112",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "nvk2wgj1mpr-VDP0fuf",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "stock@carbee.com.au",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.adtorqueedge.com/stock/?websiteID=MDM2OWF0ZVh1SjJxcXF3WU1Ra1VEY2Nja01C&format=JSON&perPage=10",
+									"protocol": "https",
+									"host": [
+										"api",
+										"adtorqueedge",
+										"com"
+									],
+									"path": [
+										"stock",
+										""
+									],
+									"query": [
+										{
+											"key": "websiteID",
+											"value": "MDM2OWF0ZVh1SjJxcXF3WU1Ra1VEY2Nja01C"
+										},
+										{
+											"key": "category",
+											"value": "Used",
+											"disabled": true
+										},
+										{
+											"key": "lastUpdated",
+											"value": "2025-01-09T12%3A00%3A00",
+											"disabled": true
+										},
+										{
+											"key": "format",
+											"value": "JSON"
+										},
+										{
+											"key": "perPage",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get stock - Dove Automotive",
+							"id": "30817430-68984040-d486-4ba6-869e-a48778841ac0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "nvk2wgj1mpr-VDP0fuf",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "stock@carbee.com.au",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.adtorqueedge.com/stock/?format=JSON&perPage=1000&websiteID=MTk3MGF0ZUN3TnJ4eGU3YUpTak1vd05PbTVr",
+									"protocol": "https",
+									"host": [
+										"api",
+										"adtorqueedge",
+										"com"
+									],
+									"path": [
+										"stock",
+										""
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "Used",
+											"disabled": true
+										},
+										{
+											"key": "lastUpdated",
+											"value": "2025-01-09T12%3A00%3A00",
+											"disabled": true
+										},
+										{
+											"key": "format",
+											"value": "JSON"
+										},
+										{
+											"key": "perPage",
+											"value": "1000"
+										},
+										{
+											"key": "websiteID",
+											"value": "MTk3MGF0ZUN3TnJ4eGU3YUpTak1vd05PbTVr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sold",
+							"id": "30817430-94b1b4f6-4fcd-44d5-ae1b-1a2ffbb1685d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c3RvY2tAY2FyYmVlLmNvbS5hdTpudmsyd2dqMW1wci1WRFAwZnVm"
+									}
+								],
+								"url": {
+									"raw": "https://api.adtorqueedge.com/stock/status/OAG-AD-24346416",
+									"protocol": "https",
+									"host": [
+										"api",
+										"adtorqueedge",
+										"com"
+									],
+									"path": [
+										"stock",
+										"status",
+										"OAG-AD-24346416"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30817430-083337dd-806c-43dd-b17b-1c57baa392a8"
+				}
+			],
+			"id": "30817430-8fc576a1-1b36-4a55-9260-74b07c52e433"
+		},
+		{
+			"name": "Save/Unsave Cars",
+			"item": [
+				{
+					"name": "Update Save/UnSave",
+					"id": "30817430-ba33dbb1-a47d-464a-8813-fb3e32ada14c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjU1MTI3MTMsImV4cCI6MTc0MTA2NDcxMywidHlwZSI6ImFjY2VzcyJ9.g_SuWdMf2UsE4SRaxTToXhhpCR_QzCCLij2Yvf3BHGQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/65f008364b33735fee85ac0c/66d54635916b39117e238b59/save-unsave-car/car-listing",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"65f008364b33735fee85ac0c",
+								"66d54635916b39117e238b59",
+								"save-unsave-car",
+								"car-listing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer Save Cars",
+					"id": "30817430-8af43825-0525-46f1-9f7a-d940aa352fbd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjQ5MTYzNDEsImV4cCI6MTc0MDQ2ODM0MSwidHlwZSI6ImFjY2VzcyJ9.cSwo9L4oysxt62dzXFeop7QjNIR7SmJXAZmd8rPjiS4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMWVjY2MxODQ5ODVmZDdmODI3ZjQiLCJpYXQiOjE3MTAzMTM0MzYsImV4cCI6MTcxMDQ5MzQzNiwidHlwZSI6ImFjY2VzcyJ9.W-hTDyxtQxvKWur-sFWpybfd5aUPbVZyjahxwtV79Nk"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/customers/65f008364b33735fee85ac0c/saved-cars/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"65f008364b33735fee85ac0c",
+								"saved-cars",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-04a031d1-d4bf-4b00-93ca-fe8f63c18901"
+		},
+		{
+			"name": "TestDrive",
+			"item": [
+				{
+					"name": "Create Test Drive",
+					"id": "30817430-5cc44639-4ffc-492e-b8fe-6550234d17b4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3NDA1MzkyMzAsImV4cCI6MTc1NjA5MTIzMCwidHlwZSI6ImFjY2VzcyJ9.OP-75EBay7fH9lNGtOX-GA_OLVNvoYYM1LlOkxs7RHE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3Mzc5ODI0ODcsImV4cCI6MTc1MzUzNDQ4NywidHlwZSI6ImFjY2VzcyJ9.UAzCPR2YidDwIB09g_wUmuklt3ec_HXu3sCmeiqm8nE"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dealership\": \"6614cf6283a51f6d02724da8\",\n  \"car\": \"6688b4582a4e46b0d265b2a0\",\n  \"currentUtcTime\": \"2025-02-01T14:15:00Z\",\n    \"bookingUtcTime\": \"2025-02-02T18:00:00Z\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Test Drives List",
+					"id": "30817430-05fcc22f-9259-4162-bdf0-86650e8f75d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3NDA1MzkyMzAsImV4cCI6MTc1NjA5MTIzMCwidHlwZSI6ImFjY2VzcyJ9.OP-75EBay7fH9lNGtOX-GA_OLVNvoYYM1LlOkxs7RHE"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Day - Hour",
+					"id": "30817430-a957e2a8-289c-43cb-939f-a49a2a2b21a4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/dealership/day/hours/6614cf6283a51f6d02724da8/2025-02-02",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								"dealership",
+								"day",
+								"hours",
+								"6614cf6283a51f6d02724da8",
+								"2025-02-02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Test Drive",
+					"id": "30817430-2eb5a6dd-ea5c-403d-b9c7-b5dbe672dd38",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3MzgwMzU1MTgsImV4cCI6MTc1MzU4NzUxOCwidHlwZSI6ImFjY2VzcyJ9.LxQeQswaC3UZ9wLUmVbEMYeaWYoO0wpe9N1v1lv_YDQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYyOGE0NjYwNDg2YjRhYTRmY2ZmMjIiLCJpYXQiOjE3MTE1MjMxMDEsImV4cCI6MTcxMTcwMzEwMSwidHlwZSI6ImFjY2VzcyJ9.UMkUOFYCsnV9WcoOo0DkTuX8DBt0irDxVE7TR5D5L7o"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/6797841502d3b030502610c7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								"6797841502d3b030502610c7"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "500",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "date%3Aasc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dealership TestDrives List",
+					"id": "30817430-555815c7-0f98-4a5c-b923-706174c68354",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/dealership/65dec1fe262e3001c4f0d0b1?limit=500&sortBy=date%3Adesc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								"dealership",
+								"65dec1fe262e3001c4f0d0b1"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "500"
+								},
+								{
+									"key": "sortBy",
+									"value": "date%3Adesc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Month - Hours",
+					"id": "30817430-ceabc88c-af8c-4fb8-8616-20f53a30dbdf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/dealership/month/hours/6614cf6283a51f6d02724da8/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								"dealership",
+								"month",
+								"hours",
+								"6614cf6283a51f6d02724da8",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reschedule Test Drive",
+					"id": "30817430-1d58a3fa-f08f-4989-86fb-6d31e6cccc09",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3NDA1MzkyMzAsImV4cCI6MTc1NjA5MTIzMCwidHlwZSI6ImFjY2VzcyJ9.OP-75EBay7fH9lNGtOX-GA_OLVNvoYYM1LlOkxs7RHE"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n//   \"dealership\": \"6614cf6283a51f6d02724da8\",\n//   \"car\": \"6688b4582a4e46b0d265b2a0\",\n  \"currentUtcTime\": \"2025-02-01T14:15:00Z\",\n    \"bookingUtcTime\": \"2025-02-02T18:00:00Z\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/reschedule/67b841f88549f215242cde47",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								"reschedule",
+								"67b841f88549f215242cde47"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Test Drive",
+					"id": "30817430-6fb99b9c-e1f2-463a-bb2b-bc6bda13d3d0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3NDA1MzkyMzAsImV4cCI6MTc1NjA5MTIzMCwidHlwZSI6ImFjY2VzcyJ9.OP-75EBay7fH9lNGtOX-GA_OLVNvoYYM1LlOkxs7RHE"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n\n  \"currentUtcTime\": \"2025-02-01T14:15:00Z\",\n    \"bookingUtcTime\": \"2025-02-02T18:00:00Z\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/test-drives/cancel/67b841f88549f215242cde47",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test-drives",
+								"cancel",
+								"67b841f88549f215242cde47"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-99aa9776-7cda-4af5-ab64-9b9f6e09b094"
+		},
+		{
+			"name": "Feeds",
+			"item": [
+				{
+					"name": "Get Feed Videos",
+					"id": "30817430-ef1577f0-cced-46b5-ba49-4fd5b92c35f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjcxNTMwNTksImV4cCI6MTc0MjcwNTA1OSwidHlwZSI6ImFjY2VzcyJ9._jFBYK7LVlfff61pQ2chd9K4QZ4Z1_VPJRg3_MxVkHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"isSearchUserSpecified\": null, // This value can be a boolean, null, or an empty string\r\n    \"onboardingQuestions\": [\r\n        {\r\n    \"values\": [ \"Toyota\" ],\r\n    \"qTag\": \"Q8\",\r\n    \"question\": \"Make\"\r\n  }\r\n    ],\r\n    \"userSearchSpecification\": {}, // This object's structure depends on the userSearchSpecificationQuery\r\n    \"location\": {} // This object's structure depends on the address schema\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/feed/videos?limit=10",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"feed",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Guest Feed Videos",
+					"id": "30817430-89b21174-b9a6-457d-b878-0ca5bf5bffb3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"location\": {\r\n    \"latitude\": 40.7128,\r\n    \"longitude\": -74.006,\r\n    \"address\": \"123 Main Street\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"street\": \"Main Street\",\r\n    \"postcode\": \"10001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/customers/feed/videos/guest?limit=90",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"customers",
+								"feed",
+								"videos",
+								"guest"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "90"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AI Bee Search",
+					"id": "30817430-bc040cb3-4c72-45b1-9052-a426a91d845f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3Mjg0NDk2MTcsImV4cCI6MTcyODYyOTYxNywidHlwZSI6ImFjY2VzcyJ9.SKuwTp0lHvTGqJqFOFABF0zgnhP1p1132dqKKRAesRM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"searchQuery\": \"Need Audi model SQ5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}/aibee",
+							"host": [
+								"{{ROOT_URL}}"
+							],
+							"path": [
+								"aibee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Feed Videos",
+					"id": "30817430-69c4237d-5c4f-4341-9839-cef104f415be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\": \"65f008364b33735fee85ac0c\",\n    \"customer_info\": {\n   \n  },\n  \"recom_numb\": 5,\n  \"interactions\": {\n\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/aiData/feed-videos",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"aiData",
+								"feed-videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New AIFeed",
+					"id": "30817430-c5136117-4f98-49d4-809c-534d5f124c80",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customer_id\": \"65f008364b33735fee85ac0c\",\r\n  \"customer_info\": {\r\n    \"price_min\": 0,\r\n    \"price_max\": 250000,\r\n    \"latitude\": 0,\r\n    \"longitude\": 0,\r\n    \"fuel_type\": \"\",\r\n    \"color\": \"dark\",\r\n    \"body_style\": \"suv\",\r\n    \"car_usage\": \"family\"\r\n  },\r\n  \"recom_numb\": 5,\r\n  \"interactions\": {\r\n    \"669de9392162c0be68936d2b\": [0.9111111111111111],\r\n    \"66a0cb9b2162c0907196da7e\": [0.17307692307692307],\r\n    \"66974a063df3b47a9c193872\": [0.078125],\r\n    \"6697489d3df3b48aad1937ff\": [0.038461538461538464],\r\n    \"669dedd82162c0491d9375e9\": [0.21875]\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/aiData/feed-videos",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"aiData",
+								"feed-videos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-fd517efa-346f-407e-a7c8-cf6683e4e4fe"
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "Upload File",
+					"id": "30817430-c5d38ec3-473b-4bc4-a6d4-47b89bf7d595",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"value": null
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/utility/file-upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"utility",
+								"file-upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete File",
+					"id": "30817430-2e4a6518-84eb-41a4-9f02-0950639ea9b2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "file",
+									"value": "https://aab-media-qa.s3.ap-southeast-2.amazonaws.com/24a2b64d-d49b-4d2f-9bb9-0b8c243379a4/ProfilePic.png",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/utility/file-delete",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"utility",
+								"file-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-493ac32e-9d21-4d5d-9ee9-f1fa686d2769"
+		},
+		{
+			"name": "PrivateAds",
+			"item": [
+				{
+					"name": "Create Private Ads",
+					"id": "30817430-566bd67c-3397-4205-90a3-120f34338b13",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWZkMGI5YWZjMWQ5NDI4MGYyMmZkYWUiLCJpYXQiOjE3MzAxODY1MDksImV4cCI6MTczNTM3MDUwOSwidHlwZSI6ImFjY2VzcyJ9.LPhSVHscdINHeAjjWKv4pSVbeXtCu-OAi5CZUj3ev_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tags\": [],\r\n  \"images\": [\r\n    \"https://d2ivfcfbdvj3sm.cloudfront.net/6fd260a869c3d7bf9335a6ae59f13235b859455a0f1e/color_no_cr/color_0320_032/MY2012/7825/7825_cc0320_032_040.jpg\"\r\n  ],\r\n  \"car\": \"67209e8e1e6f6a6c1063dd52\",\r\n  \"user\": \"65fd0b9afc1d94280f22fdae\",\r\n//   \"status\":\"PENDING\",\r\n  \"comments\": \"\",\r\n  \"price\": \"7576465\",\r\n  \"location\": {\r\n    \"postcode\": \"44000\",\r\n    \"state\": \"Islamabad\",\r\n    \"suburb\": \"G-9/2\"\r\n  },\r\n//   \"videoUrl\": \"https://aab-media-qa.s3.ap-southeast-2.amazonaws.com/1e4872b1-3932-4d03-a563-f3fba86b2cb3/feed_video.mp4\",\r\n  \"odometerReadings\": [\r\n    {\r\n      \"type\": \"\",\r\n      \"value\": 47374,\r\n      \"unitOfMeasure\": \"KM\"\r\n    }\r\n  ],\r\n \r\n  \"rego\": \"1JI7MK\",\r\n  \"regoexpiry\": null,\r\n  \"numberOfWeeks\":2,\r\n  \"connectToDealer\":true,\r\n  \"rwc\": true\r\n  \r\n}\r\n\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/privateAd",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"privateAd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Video Request",
+					"id": "30817430-ea1f6b45-b18e-480d-bc76-0b61a04c2d33",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWU5MTA1ODFlZjcyM2U5OTFkNjNjZjciLCJpYXQiOjE3NTM0NDMyNTMsImV4cCI6MTc2ODk5NTI1MywidHlwZSI6ImFjY2VzcyJ9.liC0GUSa1Pp3EJphgYjiYysQXJelT5JAMOifjrdIL8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"car\": \"67209e8e1e6f6a6c1063dd52\"\r\n \r\n}\r\n\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/videoRequest",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"videoRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Private Ads",
+					"id": "30817430-7699eabe-3b39-4d94-b44a-b799424c40ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjEzZDA5ZjgzYTUxZjQyNjY3MWQ2MzEiLCJpYXQiOjE3MjA2MDQ3OTksImV4cCI6MTcyMDc4NDc5OSwidHlwZSI6ImFjY2VzcyJ9.0xlPRkxHb-XmnqQZtAX8MQFDfrsUtDLkHifPflwh-gw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/66217f8472be1721b8f2bc08",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"66217f8472be1721b8f2bc08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rego Search",
+					"id": "30817430-e4aa0952-370b-4b53-8a9b-d2cbed9c5f29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlNmQwNDMxNjkxODJkM2JlNjM5NjMiLCJpYXQiOjE3NDI0NjcwMjYsImV4cCI6MTc0NzY1MTAyNiwidHlwZSI6ImFjY2VzcyJ9.PfZ3nOOx6rbecCcknG8sNn9k38AVoMrPXcHz66JidZk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //  \"registration_no\": \"1JI7MK\",\r\n     \"registration_no\": \"2AC7RJ\",\r\n    //  \"registration_no\": \"1WH4DF\",\r\n    //  \"registration_no\": \"1WI3FG\",\r\n    //  \"registration_no\": \"1QI4YH\",\r\n    //  \"registration_no\": \"MH9569\",\r\n    \"state\": \"VIC\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/register/vehicle",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"register",
+								"vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Facet Search",
+					"id": "30817430-ab20b6a0-82e5-4a69-b7d0-7f756014560c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjQ2NDQwMjEsImV4cCI6MTc0MDE5NjAyMSwidHlwZSI6ImFjY2VzcyJ9.qvL19hHDjOUrv5b6c9ukyB4kkSUk09gq42Cp1aUgAcQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"make\": \"BMW\",\r\n  \"model\": \"X5\",\r\n  \"series\": \"F15\",\r\n  \"year\": \"2016\",\r\n  \"badge\": \"M50d\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/facet/vehicle",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"facet",
+								"vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Private Ad AI Description",
+					"id": "30817430-c7a148a6-cce8-43df-84f5-c8c4c0e771c7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"car\": \"661689acf59f4e35b0dbf123\",\r\n  \"user\": \"66168aa3f59f4e35b0dbf456\",\r\n  \"tags\": [\"Featured\", \"SUV\", \"New Arrival\"],\r\n  \"comments\": \"Excellent condition, recently serviced.\",\r\n  \"location\": {\r\n    \"state\": \"NSW\",\r\n    \"suburb\": \"Parramatta\",\r\n    \"postcode\": \"2150\",\r\n    \"street\": \"123 Church Street\"\r\n  },\r\n  \"price\": \"24500\",\r\n  \"odometerReadings\": [\r\n    {\r\n      \"type\": \"Current\",\r\n      \"value\": 78000,\r\n      \"unitOfMeasure\": \"km\"\r\n    },\r\n    {\r\n      \"type\": \"Previous\",\r\n      \"value\": 72000,\r\n      \"unitOfMeasure\": \"km\"\r\n    }\r\n  ],\r\n  \"rego\": \"ABC123\",\r\n  \"regoexpiry\": \"2025-07-10T00:00:00.000Z\",\r\n  \"rwc\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/aiDesc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"aiDesc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"id": "30817430-8232905e-0bfd-4faa-b10b-8c2fd20ed68b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MjYyMTY3MDUsImV4cCI6MTcyNjM5NjcwNSwidHlwZSI6ImFjY2VzcyJ9.A8MaQOc017cW369-ByXzeZEkfNEragL5e85iexPEJTU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6621859872be1721b8f2bc1c\",\r\n    \"status\": \"REJECTED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/status",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Ads",
+					"id": "30817430-9323339d-7d22-4757-8ddc-498c4cec2d0c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjQ2NDQwMjEsImV4cCI6MTc0MDE5NjAyMSwidHlwZSI6ImFjY2VzcyJ9.qvL19hHDjOUrv5b6c9ukyB4kkSUk09gq42Cp1aUgAcQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/user/66d584a0916b39b22b241e24",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"user",
+								"66d584a0916b39b22b241e24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dealership Ads List",
+					"id": "30817430-b5b942ab-5373-47c6-b692-eaf77a6b370d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjE0Y2Y2MTgzYTUxZjFmYjI3MjRkYTQiLCJpYXQiOjE3MjU1Mzg3MzMsImV4cCI6MTc0MTA5MDczMywidHlwZSI6ImFjY2VzcyJ9.w_AOZhjZp0Yik7FR0qDPosvne3LMOjoJ6GZ-VCveV34",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjE0Y2Y2MTgzYTUxZjFmYjI3MjRkYTQiLCJpYXQiOjE3MTk5MDAxODMsImV4cCI6MTcyMDA4MDE4MywidHlwZSI6ImFjY2VzcyJ9.h14ITuFb_rlO73z9YkesS_szUPUyG7lyJLplBlfAzIs"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/private-Ads/dealership/privateAd",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"private-Ads",
+								"dealership",
+								"privateAd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AU POST",
+					"id": "30817430-001fe11f-39c7-43ac-91ad-4a88223b3e1c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "AUTH-KEY",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "83f7d897-6c93-4a64-9ecf-91120d333e98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://digitalapi.auspost.com.au/postcode/search.json?q=04403",
+							"protocol": "https",
+							"host": [
+								"digitalapi",
+								"auspost",
+								"com",
+								"au"
+							],
+							"path": [
+								"postcode",
+								"search.json"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "04403"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-3b33e9ea-9138-48f8-b1ba-b995d95ab8f9"
+		},
+		{
+			"name": "HeroVideo",
+			"item": [
+				{
+					"name": "Create Hero Video",
+					"id": "30817430-7d9ca7f8-bcdc-40d0-b901-0223065f09df",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjE0Y2Y2MTgzYTUxZjFmYjI3MjRkYTQiLCJpYXQiOjE3MjU1Mzg3MzMsImV4cCI6MTc0MTA5MDczMywidHlwZSI6ImFjY2VzcyJ9.w_AOZhjZp0Yik7FR0qDPosvne3LMOjoJ6GZ-VCveV34",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car\": \"66cfbc26ce3f5d3ba34e4430\",\r\n    \"videoUrl\": \"https://carrbee.s3.ap-southeast-2.amazonaws.com/blurred_videos/66217f8472be1721b8f2bc08_2024-08-06_00-30-44.mp4\"\r\n// \"tags\": [\"66a1e7ee31665521ea6c3c76\", \"66a1e7ee31665521ea6c3c76\", \"66a1e7ee31665521ea6c3c76\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/hero-video",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hero-video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Hero Video",
+					"id": "30817430-fac43250-b22f-4881-a044-5d89f208c687",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/hero-video/6668331d6ca8f7244474b2df",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hero-video",
+								"6668331d6ca8f7244474b2df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Hero Video",
+					"id": "30817430-2249c16e-80c6-48a0-9326-9ea4307ab86e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjE0Y2Y2MTgzYTUxZjFmYjI3MjRkYTQiLCJpYXQiOjE3MjA3NzM0NjcsImV4cCI6MTcyMDk1MzQ2NywidHlwZSI6ImFjY2VzcyJ9.rv785optpqKYM-ZKdgqtj60T8lfQnOhvlTTii5CEmME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"videoUrl\": \"http/kopj\",\r\n    \"tags\": [\"6650b580a126a179908ed0bb\", \"6650b580a126a179908ed0bb\", \"664d7f0dc2d7442090655845\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/hero-video/668e6d2c778a74ff80464a96",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hero-video",
+								"668e6d2c778a74ff80464a96"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hero Videos",
+					"id": "30817430-035507b3-4ef2-4dfc-9d87-98bca9f93176",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/hero-video/videos",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hero-video",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-946cce77-ca3c-4ddc-b408-a528709963b8"
+		},
+		{
+			"name": "Ads Report",
+			"item": [
+				{
+					"name": "Create Ads Report",
+					"id": "30817430-7c9b6bf1-905d-469f-b769-273b9653bc91",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3Mjg0NDE4NTAsImV4cCI6MTcyODYyMTg1MCwidHlwZSI6ImFjY2VzcyJ9.llQYn6tr8aVtm3lTpC1F2jJTw8iQN7_K8IgshDIG2XE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car\": \"64d589dd62a6e9030090113d\",\r\n    \"comment\": \"This is a sample comment.\",\r\n    \"issue\": \"The ad contains misleading information.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/ad-reports/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ad-reports",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Id",
+					"id": "30817430-98c521c1-be34-4a79-b6a6-123a4e273c25",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjgzNjIzMjIsImV4cCI6MTc0MzkxNDMyMiwidHlwZSI6ImFjY2VzcyJ9.11sVgYJ0Q02a7uoF66TKFZgBtaQL1Yx8PdclfBdJK_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/ad-reports/6704da5ee3f7d244d0afeb30",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ad-reports",
+								"6704da5ee3f7d244d0afeb30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Report By Id",
+					"id": "30817430-9019ccf9-5d03-4716-ad7f-fdf401437806",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjgzNjIzMjIsImV4cCI6MTc0MzkxNDMyMiwidHlwZSI6ImFjY2VzcyJ9.11sVgYJ0Q02a7uoF66TKFZgBtaQL1Yx8PdclfBdJK_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Thi a sample comment.\",\r\n    \"issue\": \"The ad contains misleading information.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/ad-reports/6704da5ee3f7d244d0afeb30",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ad-reports",
+								"6704da5ee3f7d244d0afeb30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ads Reports By User",
+					"id": "30817430-061bf315-1ca2-457d-ab5a-fc4df1d85082",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWYwMDgzNjRiMzM3M2M3NGY4NWFjMGEiLCJpYXQiOjE3MjgzNjIzMjIsImV4cCI6MTc0MzkxNDMyMiwidHlwZSI6ImFjY2VzcyJ9.11sVgYJ0Q02a7uoF66TKFZgBtaQL1Yx8PdclfBdJK_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/ad-reports/user/65f008364b3373c74f85ac0a",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ad-reports",
+								"user",
+								"65f008364b3373c74f85ac0a"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-4ff17294-5e98-446e-ad25-e734205a5543"
+		},
+		{
+			"name": "AI Bee",
+			"item": [
+				{
+					"name": "AI Description",
+					"id": "30817430-beebc53f-e9b9-4400-b276-db7b8d7dc3a4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"region\": \"au\",\r\n        \"state\": \"NSW\",\r\n        \"suburb\": \"Parramatta\",\r\n        \"title\": \"2013 Volvo V40 T4 Luxury Auto MY13\",\r\n        \"year\": 2013,\r\n        \"make\": \"Volvo\",\r\n        \"model\": \"V40\",\r\n        \"badge\": \"T4 Luxury\",\r\n        \"series\": null,\r\n        \"color\": \"Silver or Chrome\",\r\n        \"odometer\": 78000,\r\n        \"model_year\": \"MY13\",\r\n        \"release_year\": 2013,\r\n        \"release_month\": 2,\r\n        \"body_type\": \"Hatchback\",\r\n        \"transmission\": \"Sports Automatic\",\r\n        \"fuel_type\": \"Petrol\",\r\n        \"drive\": \"Front Wheel Drive\",\r\n        \"num_doors\": 5,\r\n        \"num_seats\": 5,\r\n        \"num_gears\": 6,\r\n        \"num_cylinders\": 5,\r\n        \"engine_size\": 1984,\r\n        \"power_kw\": 132,\r\n        \"torque_nm\": 300,\r\n        \"range\": 816,\r\n        \"options\": [],\r\n        \"tags\": [\r\n            \"Featured\",\r\n            \"SUV\",\r\n            \"New Arrival\"\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://aibee-env.ap-southeast-2.elasticbeanstalk.com/api/v1/ad_description/generate_description",
+							"protocol": "http",
+							"host": [
+								"aibee-env",
+								"ap-southeast-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ad_description",
+								"generate_description"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-79dd64b0-0026-4785-9e68-fb437c885017"
+		},
+		{
+			"name": "Drop Downs",
+			"item": [
+				{
+					"name": "Create DropDown",
+					"id": "30817430-497db655-c2ff-4ae6-b3ce-f5205b354625",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3NDg4Mzc4NDQsImV4cCI6MTc2NDM4OTg0NCwidHlwZSI6ImFjY2VzcyJ9.coa9bgjQGg_W9sVhs9JB-fJUawkcLOp7qsNniF3u2R4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3Mzg4MjU3MDcsImV4cCI6MTczOTAwNTcwNywidHlwZSI6ImFjY2VzcyJ9.3JA33cChvhP-Ca5Z4jr0j--q2DoHOh-G3v9FTf_0GdU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Listing Type\",\n    \"options\": [\"Demo\",\"Used\", \"New\", \"Privete\", \"Dealer\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dropDown",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dropDown"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-50b0c69b-38e5-4505-b256-3b212be56a0c"
+		},
+		{
+			"name": "Dealer",
+			"item": [
+				{
+					"name": "Delete Dealer",
+					"id": "30817430-b7b60158-7c89-429d-ae7a-045f240217d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MjczMjM4NTIsImV4cCI6MTc0Mjg3NTg1MiwidHlwZSI6ImFjY2VzcyJ9.-x3Oiqjj1typG5Jd2LPY444Ls-Jcx4H3BMPY6P3zvvg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MTA2NzA1MjUsImV4cCI6MTcxMDg1MDUyNSwidHlwZSI6ImFjY2VzcyJ9.rxT7NBb2ZQx0wUuGgw6pPj6r6EVbsJHm7OhU-kU06j0"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/dealer/661329d63abc3bdb34f188d2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer",
+								"661329d63abc3bdb34f188d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealer",
+					"id": "30817430-2cecac49-c17d-4261-9c4d-3e208b702666",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmQ1ODRhMDkxNmIzOTJkMTIyNDFlMjIiLCJpYXQiOjE3MjcyNDgyNjcsImV4cCI6MTc0MjgwMDI2NywidHlwZSI6ImFjY2VzcyJ9.9rnXmGXbSIYeTb47z9Aa6vXkpbzlaJq4otdhmdpSVzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkODdlNTMxNjkxOGU5YmVlNjM2ZDUiLCJpYXQiOjE3MDk2Mjg5NDgsImV4cCI6MTcwOTgwODk0OCwidHlwZSI6ImFjY2VzcyJ9.oHPoJW-GsRI2NJvacpaVnE5ZH0kRJwm8-IJjLejVQDk"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "ACTIVEu",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Alpha",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"value": "https://cdn.landesa.org/wp-content/uploads/default-user-image.png",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "xyz",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastname",
+									"value": "Dealer",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "address",
+									"value": "Alpha-dealer",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "478396656",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "facebookUrl",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "instagramUrl",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "linkedinUrl",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dealer/66d584a0916b39b22b241e24",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dealer",
+								"66d584a0916b39b22b241e24"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-85c32a3f-b768-44f9-a0f8-a0fb232118e6"
+		},
+		{
+			"name": "Vector Images",
+			"item": [
+				{
+					"name": "Add Vector Images",
+					"id": "30817430-894c0f24-d826-4a28-b894-6f029f4f0a1d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRkNzk3NjNiNTZhMDE0NzA0NmMwNjYiLCJpYXQiOjE3NTQzNzM1MzcsImV4cCI6MTc2OTkyNTUzNywidHlwZSI6ImFjY2VzcyJ9.aGMaTlcUNFT4gMyqL7XlCPGE4mlTsiqXBgeZzlh215Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Nzk4NWUyY2NiOGJkOTNmMzUwNDQ5NDMiLCJpYXQiOjE3NTM2OTgzNDksImV4cCI6MTc2OTI1MDM0OSwidHlwZSI6ImFjY2VzcyJ9.VWR5spBIWnpvC5G8kb7tR0n7V43fknxiZEvaxodDolE"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"image\": \"http://\"\n    \n    \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vector-images/id=6874b030f4cfe5bf969eff26",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vector-images",
+								"id=6874b030f4cfe5bf969eff26"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-1fbe2a48-64d9-4a47-b03c-3aad9226ab66"
+		},
+		{
+			"name": "Aggregator - Ad Torque",
+			"item": [
+				{
+					"name": "Adtorque edge Alto",
+					"id": "30817430-50b6801c-6dbc-4323-91c2-fdd9cee015bd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/car/aggregator/AdTorque?subAggregatorName=Alto%20Pact&websiteID=MDM2OWF0ZVh1SjJxcXF3WU1Ra1VEY2Nja01C&perPage=10&lastUpdated=2024-12-01T12:00:00&page=6",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"aggregator",
+								"AdTorque"
+							],
+							"query": [
+								{
+									"key": "subAggregatorName",
+									"value": "Alto%20Pact"
+								},
+								{
+									"key": "websiteID",
+									"value": "MDM2OWF0ZVh1SjJxcXF3WU1Ra1VEY2Nja01C"
+								},
+								{
+									"key": "perPage",
+									"value": "10"
+								},
+								{
+									"key": "lastUpdated",
+									"value": "2024-12-01T12:00:00"
+								},
+								{
+									"key": "page",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dove Automotive",
+					"id": "30817430-8f9c8302-fd79-4773-81fa-264ad5c12029",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/car/aggregator/AdTorque?subAggregatorName=Dove Automotive&websiteID=MTk3MGF0ZUN3TnJ4eGU3YUpTak1vd05PbTVr&perPage=1000&lastUpdated=2024-12-01T12:00:00&page=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"aggregator",
+								"AdTorque"
+							],
+							"query": [
+								{
+									"key": "subAggregatorName",
+									"value": "Dove Automotive"
+								},
+								{
+									"key": "websiteID",
+									"value": "MTk3MGF0ZUN3TnJ4eGU3YUpTak1vd05PbTVr"
+								},
+								{
+									"key": "perPage",
+									"value": "1000"
+								},
+								{
+									"key": "lastUpdated",
+									"value": "2024-12-01T12:00:00"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Geely Ferntree Gully Used",
+					"id": "30817430-4899ce3a-6419-4f6a-b52d-bdda9941c1e4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/car/aggregator/AdTorque?subAggregatorName=CD Motor Group&websiteID=MTc2N2F0ZWtaU0VjMzFoRUtra2RVeTZqTUdO&perPage=1000&lastUpdated=2024-12-01T12:00:00&page=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"aggregator",
+								"AdTorque"
+							],
+							"query": [
+								{
+									"key": "subAggregatorName",
+									"value": "CD Motor Group"
+								},
+								{
+									"key": "websiteID",
+									"value": "MTc2N2F0ZWtaU0VjMzFoRUtra2RVeTZqTUdO"
+								},
+								{
+									"key": "perPage",
+									"value": "1000"
+								},
+								{
+									"key": "lastUpdated",
+									"value": "2024-12-01T12:00:00"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdTorque edge Auto",
+					"id": "30817430-ab4767ef-6396-416f-8252-55b8c425617e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/car/aggregator/AdTorque?subAggregatorName=Auto%20Pact&websiteID=MDc5MGF0ZXltV2h2aUJGREFybDFic1hxVUFR&perPage=1000&page=4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"car",
+								"aggregator",
+								"AdTorque"
+							],
+							"query": [
+								{
+									"key": "subAggregatorName",
+									"value": "Auto%20Pact"
+								},
+								{
+									"key": "websiteID",
+									"value": "MDc5MGF0ZXltV2h2aUJGREFybDFic1hxVUFR"
+								},
+								{
+									"key": "perPage",
+									"value": "1000"
+								},
+								{
+									"key": "page",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30817430-2d1b1c42-fb33-43df-8d65-c53528a64730"
+		},
+		{
+			"name": "Catalog",
+			"id": "30817430-c8a0c64f-4901-495a-9911-d620930441e9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/v1/car/catalog/download",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"v1",
+						"car",
+						"catalog",
+						"download"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
