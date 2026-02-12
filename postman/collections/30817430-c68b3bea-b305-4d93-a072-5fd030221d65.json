@@ -5801,33 +5801,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "Testing Github",
-			"id": "30817430-87eb6bca-c088-4e60-a1f5-6063f580c119",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3003/api/v1/car/catalog/download",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3003",
-					"path": [
-						"api",
-						"v1",
-						"car",
-						"catalog",
-						"download"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
